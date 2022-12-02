@@ -43,7 +43,8 @@ jobs:
         run: |
           docker-compose run \
           -v "$GITHUB_WORKSPACE/pages_repo/dist:/app/loconotion/dist" \
-          loconotion "example/example_site.toml"
+          -v "${GITHUB_WORKSPACE}/loconotion/example/example_site.toml:/app/loconotion/site.toml" \
+          loconotion "site.toml"
         working-directory: loconotion
 
       - name: Deploy to Pages
