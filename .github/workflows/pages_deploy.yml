@@ -49,9 +49,10 @@ jobs:
 
       - name: test
         run: |
+          ls -a
           cd loconotion
           ls -a
-          cd pages_repo/dist/notion
+          cd pages_repo
           ls -a
 
       - name: Deploy to Pages
