@@ -47,12 +47,6 @@ jobs:
           loconotion "site.toml"
         working-directory: loconotion
 
-      - name: test
-        run: |
-          ls -a
-          cd pages_repo/dist/notion
-          ls -a
-
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
@@ -63,7 +57,9 @@ jobs:
           SINGLE_COMMIT: true
 
       - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@main
+        uses: Mattraks/delete-workflow-runs@v2
         with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
           retain_days: 2
           keep_minimum_runs: 6
