@@ -50,7 +50,7 @@ jobs:
       - name: test
         run: |
           ls -a
-          cd pages_repo/dist
+          cd pages_repo/dist/notion
           ls -a
 
       - name: Deploy to Pages
@@ -58,7 +58,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ${GITHUB_WORKSPACE}/pages_repo/dist/notion
+          FOLDER: pages_repo/dist/notion
           CLEAN: true
           SINGLE_COMMIT: true
 
