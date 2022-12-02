@@ -47,15 +47,21 @@ jobs:
           loconotion "site.toml"
         working-directory: loconotion
 
+      - name: test
+        run: |
+          cd loconotion
+          ls -a
+          cd pages_repo/dist/notion
+          ls -a
+
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/notion
+          FOLDER: ${GITHUB_WORKSPACE}/pages_repo/dist/notion
           CLEAN: true
           SINGLE_COMMIT: true
-        working-directory: pages_repo
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@main
