@@ -6,8 +6,8 @@
 name: Deploy to Pages
 
 on:
-#  schedule:
-#    - cron: "0 2 * * *"
+  schedule:
+    - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
     
